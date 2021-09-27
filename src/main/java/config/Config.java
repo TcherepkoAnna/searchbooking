@@ -21,7 +21,6 @@ public class Config {
     private static final String WEBDRIVER_CHROME_PATH_LINUX = "webdriver.path.chrome.linux";
     private static final String WEBDRIVER_FIREFOX_PATH_LINUX = "webdriver.path.firefox.linux";
     private static final String PREFERRED_BROWSER = "preferred_browser";
-    private static final String WAIT_TIME = "wait";
 
 
     public Config() {
@@ -43,10 +42,6 @@ public class Config {
 
     public String getPreferredBrowser() {
         return properties.getProperty(PREFERRED_BROWSER);
-    }
-
-    public long getWaitTime() {
-        return Long.valueOf(properties.getProperty(WAIT_TIME));
     }
 
     public String webdriverChromePathWin() {

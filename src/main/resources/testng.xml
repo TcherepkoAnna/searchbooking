@@ -1,0 +1,24 @@
+<suite name="testTask - Booking.com test" verbose="10">
+
+
+    <test name="Date picker" preserve-order="true">
+        <classes>
+            <class name="TestDatePicker">
+                <methods>
+                    <include name="testSettingPickerValues"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Search results" preserve-order="true">
+        <classes>
+            <class name="TestSearchResults">
+                <methods>
+                    <include name="testSortingByPrice"/>
+                    <include name="testChangeCurrency"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
