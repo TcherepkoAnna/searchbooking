@@ -1,10 +1,11 @@
-import config.Config;
 import logger.Log;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.pages.booking.HomePage;
 import utils.DateUtils;
+
+import java.time.LocalDate;
 
 public class TestDatePicker extends TestBase {
 
@@ -39,6 +40,22 @@ public class TestDatePicker extends TestBase {
 //        compare
         Assert.assertEquals(actualFrom, expectedFrom, String.format(" Actual FROM values is [%s] ", actualFrom));
         Assert.assertEquals(actualTo, expectedTo, String.format(" Actual TO values is [%s] ", expectedTo));
+    }
+
+
+    @Test
+    public void testEarlierDateNotSet() {
+
+        openHomepage();
+        LocalDate today = LocalDate.now();
+        LocalDate desiredFromYesterday = today.getDayOfYear() != 1 ? LocalDate.ofYearDay(today.getYear(), today.getDayOfYear() - 1)
+                : LocalDate.of(today.getYear() - 1, 12, 31);
+
+        Log.info("Setting earlier date: [%s], today [%s] ", desiredFromYesterday, today);
+        homePage.setDate(desiredFromYesterday);
+        String actualFrom = homePage.getCheckInFieldValue();
+        Assert.assertEquals(actualFrom, "Check-in", String.format(" Actual FROM values is [%s] ", actualFrom));
+
     }
 
 }

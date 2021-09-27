@@ -41,9 +41,6 @@ public class DatePicker {
 
     public void setDate(LocalDate dateToSet) {
         Log.info("Selecting date: [%s]", dateToSet);
-        if (dateToSet.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Date is prior to current date. ");
-        }
         PickerMonthTable month = getPickerMonthTable(dateToSet);
         month.setDay(dateToSet.getDayOfMonth());
 
@@ -68,7 +65,7 @@ public class DatePicker {
                 if (shevronNext.isDisplayed()) shevronNext.click();
             } else {
                 if (!shevronPrev.isDisplayed()) {
-                    throw new IllegalArgumentException(String.format(" Required date [%s] is not possible. Earliest available month-year: " + all.get(0).yearMonth));
+                    throw new IllegalArgumentException(String.format(" Required date [%s] is not possible. Earliest available month-year: [%s] ", dateToSet, all.get(0).yearMonth));
                 }
                 Log.info("Moving back in datepicker calendar");
                 shevronPrev.click();

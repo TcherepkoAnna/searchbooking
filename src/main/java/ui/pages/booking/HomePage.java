@@ -27,13 +27,17 @@ public class HomePage extends Page {
     }
 
 
+    public void setDate(LocalDate dateToSelect  ) {
+        DatePicker datePicker = openDatepicker();
+        datePicker.setDate(dateToSelect);
+    }
     public void setDateRange(LocalDate fromDate, LocalDate toDate) {
         DatePicker datePicker = openDatepicker();
         datePicker.setDate(fromDate);
         datePicker.setDate(toDate);
     }
 
-    private DatePicker openDatepicker() {
+    public DatePicker openDatepicker() {
         if (!DatePicker.isDisplayed()) {
             Log.info("clicking DateRange field");
             daterangeField.click();

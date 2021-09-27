@@ -5,6 +5,7 @@
         <classes>
             <class name="TestDatePicker">
                 <methods>
+                    <include name="testEarlierDateNotSet"/>
                     <include name="testSettingPickerValues"/>
                 </methods>
             </class>

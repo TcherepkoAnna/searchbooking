@@ -29,7 +29,7 @@ public class TestBase {
         setLangAndCurrency();
     }
 
-    private void openHomepage() {
+    public void openHomepage() {
         driver.get(config.getBookingUrl());
         HomePage homePage = new HomePage();
         homePage.render();
